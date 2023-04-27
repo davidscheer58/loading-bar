@@ -18,9 +18,9 @@ class LoadingBar extends LitElement {
   
   
   .bar-wrapper {
-      display: flex; 
-      border: 2px solid black; 
-      padding: 5px; 
+    display: flex;
+    border: 2px solid black;
+    padding: 5px;
 
     }
   
@@ -28,12 +28,12 @@ class LoadingBar extends LitElement {
 
 
     .styling {
-      width:30px; 
-      height: 50px;
-      display: flex; 
-      padding: 5px; 
-      border-radius: 10px; 
-      margin: 3px; 
+      height: 40px;
+    width: 440px;
+    display: flex;
+    padding: 5px;
+    background: grey;
+    border-radius: 5px
       
 
     }
@@ -67,13 +67,15 @@ class LoadingBar extends LitElement {
     }
 
     
+
+    
   `;
 
   constructor() {
     super(); 
     this.title = 'IST Final Project' 
     this.startTime= 0; 
-    this.endTime = 15; 
+    this.endTime = 28; 
     this.widthSize = 40; 
 
 
@@ -82,7 +84,7 @@ class LoadingBar extends LitElement {
   render() {
     return html`
 
-    
+
 <div class= 'bar-wrapper'> 
   <div class = "text"> 
     ${this.title}

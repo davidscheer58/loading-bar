@@ -7,12 +7,12 @@ import '@lrnwebcomponents/count-up/count-up.js';
 
 class LoadingBarInfo extends IntersectionObserverMixin(LitElement) { 
     static get properties() {
-      let prop = {};
+      let props = {};
       if(super.properties) {
-        prop = super.properties; 
+        props = super.properties; 
       }
       return{
-        ...prop,
+        ...props,
         loading:{type: Array},
       }
 
@@ -24,8 +24,8 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
 
     .overallBackground{
         border: 2px solid black;
-        padding: 5px; 
-        background: grey; 
+        padding: 5px;
+        background: #474847ed;
 
     }
 
@@ -40,31 +40,45 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
 
     }
     multipleBars(){
-        const address = '/api/bar-api'; 
-        fetch(address). then((response) => {
+        const address = '../api/bar-api'; 
+        fetch(address).then((response) => {
             if(response.ok){
                 return response.json(); 
-
             }
             return[]; 
         }).then((data)=>{
             this.loading= data; 
+            console.log(this.loading);
         });
 
     }
     
+    // render() { 
+    //     return html` 
+    //     ${this.elementVisible ? html`
+    //     <div class = "infoTitle"> 
+    //         how long to fill up  bars
+    // </div> 
+    // <div class = "overallBackground"> 
+    //     ${this.loading.map(loading => html `
+    //     <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
+    // </loading-bar> 
+    //     `)}
+    //     `:``}
+    //     `
+    // }
+
     render() { 
         return html` 
-        ${this.elementVisible ? html`
         <div class = "infoTitle"> 
             how long to fill up  bars
-    </div> 
-    <div class = "overallBackground"> 
-        ${this.loading.map(loading => html `
-        <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
-    </loading-bar> 
+        </div> 
+        <div class = "overallBackground"> 
+            ${this.loading.map(loading => html `
+            <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
+            </loading-bar> 
+        </div>
         `)}
-        `:``}
         `
     }
 }
