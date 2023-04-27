@@ -1,15 +1,33 @@
 import{ LitElement, html, css} from 'lit'; 
-import "./loading-bar";
+import "./loading-bar.js";
+import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 import '@lrnwebcomponents/count-up/count-up.js'; 
 
 
 
-class LoadingBarInfo extends LitElement { 
-    static properties = {
-        bar: {type: Array},
+class LoadingBarInfo extends IntersectionObserverMixin(LitElement) { 
+    static get properties() {
+      let prop = {};
+      if(super.properties) {
+        prop = super.properties; 
+      }
+      return{
+        ...prop,
+        loading:{type: Array},
+      }
 
     }
     static styles = css`
+    .infoTitle{
+        display: column; 
+    }
+
+    .overallBackground{
+        border: 2px solid black;
+        padding: 5px; 
+        background: grey; 
+
+    }
 
     
     `;
@@ -17,36 +35,39 @@ class LoadingBarInfo extends LitElement {
     constructor(){
         super(); 
       this.header = 'Final Project'; 
-      this.bar = []; 
-      this.createBars(); 
+      this.loading = []; 
+      this.multipleBars(); 
 
     }
-    createBars(){
-        const address = new URL ('../assets/bar-api.js' , import.meta.url).href; 
+    multipleBars(){
+        const address = new URL ('/api/bar-api.js' , import.meta.url).href; 
         fetch(address). then((response) => {
-            return response.json(); 
-            
-        }).then((data)=> {
-            this.bar= data; 
-        }); 
+            if(response.ok){
+                return response.json(); 
+
+            }
+            return[]; 
+        }).then((data)=>{
+            this.loading= data; 
+        });
+
     }
     
-    render(){
-        return html`
-        <div> 
-
-            ${this.bar.map(bars => html`
-            <loading-bar title= "${bars.title}" endTime= "${bars.endTime}" startTime= "${bars.startTime}" widthSize="${this.widthSize}">
+    render() { 
+        return html` 
+        ${this.elementVisible ? html`
+        <div class = "infoTitle"> 
+            how long to fill up  bars
+    </div> 
+    <div class = "overallBackground"> 
+        ${this.bar.map(bars => html `
+        <loading-bar title= "${bars.title}" endTime= "${bars.endTime}" startTime="${bars.startTime}" widthSize="${bars.widthSize}">
     </loading-bar> 
-     <count-up></count-up> 
-     
-            
-            `)}
-        `; 
-
+        `)}
+        `:``}
+        `
     }
 }
 
 
-
-customElements.define('loading-bar-info', LoadingBarInfo); 
+customElements.define('loading-bar-info', LoadingBarInfo);

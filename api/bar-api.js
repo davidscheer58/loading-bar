@@ -1,8 +1,25 @@
 export default async function handler(request, res) {
     var catalog= [
     {
-      
-    },      
+      "startTime":"0",
+      "endTime":"15",
+      "title": "1",
+      "widthSize":"10",
+    },
+    {
+        "startTime":"0",
+        "endTime":"40", 
+        "title": "2",
+        "widthSize":"20",
+    },
+    {
+        "startTime":"0",
+        "endTime":"35",
+        "title":"3",
+        "widthSize":"30"
+    }
+
+
 
     ];
     

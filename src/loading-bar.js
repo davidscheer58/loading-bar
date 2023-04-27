@@ -1,40 +1,38 @@
-import { LitElement, html, css,unsafeCSS } from 'lit'; 
+import { LitElement, html, css } from 'lit'; 
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin';
 import '@lrnwebcomponents/count-up/count-up.js'; 
 
 
 class LoadingBar extends LitElement {
-  static get properties() { 
-    let props= {}; 
-    if (super.properties) {
-      props = super.properties; 
-    }
-    return { 
-      startTime: {type: Numbrer },
-      endTime: {type: String} , 
-      title: {type: String},
-      widthSize: {type: Number} 
-    }
-  }
+
+  static properties=
+   { 
+    startTime: {type: String}, 
+    endTime: {type: String}, 
+    title: {type: String}, 
+    widthSize: {type: String}
+
+   }
+
   static styles = css`
   
   
   .bar-wrapper {
-      border: 1px solid #8e8e8e;  
-      justify-content: space-between; 
       display: flex; 
-      display: inline-block; 
+      border: 2px solid black; 
+      padding: 5px; 
+
     }
   
 
 
 
     .styling {
-      width:40px; 
-      height: 70px;
+      width:30px; 
+      height: 50px;
       display: flex; 
       padding: 5px; 
-      border-radius: 20px; 
+      border-radius: 10px; 
       margin: 3px; 
       
 
@@ -44,13 +42,13 @@ class LoadingBar extends LitElement {
     
 
     .text{
-      padding: 5px; 
+      padding: 10px; 
 
     }
 
     .loading-bar-prop{
       border-radius: 5px; 
-      background: linear-gradient(to right, red, yellow); 
+      background: linear-gradient(to right, blue, purple); 
       height: 40px; 
       width: 440px; 
       animation-timing-function: linear; 
@@ -73,9 +71,9 @@ class LoadingBar extends LitElement {
 
   constructor() {
     super(); 
-    this.title = 'ist 256' 
+    this.title = 'IST Final Project' 
     this.startTime= 0; 
-    this.endTime = 20; 
+    this.endTime = 15; 
     this.widthSize = 40; 
 
 
@@ -83,18 +81,17 @@ class LoadingBar extends LitElement {
 
   render() {
     return html`
-     ${this.elementVisible ? html`
-     <div class = 'wrapper'> 
-      <div class ="test" > 
-        ${this.title} 
+<div class= 'bar-wrapper'> 
+  <div class = "text"> 
+    ${this.title}
   </div> 
-  <div class= "barStyle" style= "width: ${this.widthSize}%">
-  <div class = "bar" style= "animation-duration: ${this.endtime}s; width: 100%; animation-delay: ${this.startTime}s"> 
+  <div class = "styling" style = "width: ${this.widthSize}%">
+  <div class = "loading-bar-prop" style= "animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s">
+  </div>
+  </div>
+  <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noneasing="true" decimalPlaces="2"></count-up>
   </div> 
-  </div> 
-  <count-up start="${this.startTime}" end="${this.endTime}" duration= "${this.endTime}" noeasing= "true" decimalPlaces= "2" ></count-up>
-  </div> 
-  ` : ``};
+
   `
      
      
