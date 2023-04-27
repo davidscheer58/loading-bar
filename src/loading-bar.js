@@ -81,6 +81,8 @@ class LoadingBar extends LitElement {
 
   render() {
     return html`
+
+    
 <div class= 'bar-wrapper'> 
   <div class = "text"> 
     ${this.title}
@@ -91,6 +93,9 @@ class LoadingBar extends LitElement {
   </div>
   <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noneasing="true" decimalPlaces="2"></count-up>
   </div> 
+
+
+  
 
   `
      

@@ -40,7 +40,7 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
 
     }
     multipleBars(){
-        const address = new URL ('/api/bar-api.js' , import.meta.url).href; 
+        const address = '/api/bar-api'; 
         fetch(address). then((response) => {
             if(response.ok){
                 return response.json(); 
@@ -60,8 +60,8 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
             how long to fill up  bars
     </div> 
     <div class = "overallBackground"> 
-        ${this.bar.map(bars => html `
-        <loading-bar title= "${bars.title}" endTime= "${bars.endTime}" startTime="${bars.startTime}" widthSize="${bars.widthSize}">
+        ${this.loading.map(loading => html `
+        <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
     </loading-bar> 
         `)}
         `:``}
