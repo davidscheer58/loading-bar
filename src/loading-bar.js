@@ -66,7 +66,17 @@ class LoadingBar extends LitElement {
 
     }
 
-    
+    @media (prefers-reduced-motion) 
+    {
+      .loading-bar-prop{
+        animation-timing-function:steps(2,jump-end)!important; 
+
+      }
+      .counter
+      {
+        visibility:hidden; 
+      }
+    }
 
     
   `;
