@@ -20,12 +20,13 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
     static styles = css`
     .infoTitle{
         display: column; 
+        font-family:"Inter var experimental", "Inter var" , -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     }
 
     .overallBackground{
         border: 2px solid black;
         padding: 5px;
-        background: #474847ed;
+        background: #c8cbc8ec;
 
     }
 
@@ -51,6 +52,7 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
             console.log(this.loading);
         });
 
+
     }
     
     // render() { 
@@ -70,14 +72,19 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
 
     render() { 
         return html` 
+
+        
+
         <div class = "infoTitle"> 
-            how long to fill up  bars
+            Module Count:50000
         </div> 
         <div class = "overallBackground"> 
             ${this.loading.map(loading => html `
             <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
             </loading-bar> 
         </div>
+
+        
         `)}
         `
     }

@@ -48,7 +48,7 @@ class LoadingBar extends LitElement {
 
     .loading-bar-prop{
       border-radius: 5px; 
-      background: linear-gradient(to right, blue, purple); 
+      background: linear-gradient(to right, yellow, orange); 
       height: 40px; 
       width: 440px; 
       animation-timing-function: linear; 
