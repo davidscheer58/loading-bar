@@ -30,6 +30,21 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
 
     }
 
+    .fill{
+        height: 120vh; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        background-color: #888585
+        padding: 1rem; 
+        box-sizing: border-box; 
+    }
+    h1{ 
+        font-size: 2rem; 
+
+    }
+
     
     `;
 
@@ -51,29 +66,32 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
             this.loading= data; 
             console.log(this.loading);
         });
+        
 
 
     }
     
-    // render() { 
-    //     return html` 
-    //     ${this.elementVisible ? html`
-    //     <div class = "infoTitle"> 
-    //         how long to fill up  bars
-    // </div> 
-    // <div class = "overallBackground"> 
-    //     ${this.loading.map(loading => html `
-    //     <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
+    // // render() { 
+    // //     return html` 
+    // //     ${this.elementVisible ? html`
+    // //     <div class = "infoTitle"> 
+    // //         how long to fill up  bars
+    // // </div> 
+    // // <div class = "overallBackground"> 
+    // //     ${this.loading.map(loading => html `
+    // //    <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
     // </loading-bar> 
-    //     `)}
-    //     `:``}
-    //     `
-    // }
+    // //     `)}
+    // //     `:``}
+    // //     `
+    // // }
 
     render() { 
         return html` 
-
-        
+        <div class="fill">
+            <h1>Welcome to my final project</h1> 
+            <p>All I am waiting on is for your scroll to see my animation.</p> 
+    </div> 
 
         <div class = "infoTitle"> 
             Module Count:50000

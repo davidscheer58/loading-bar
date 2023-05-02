@@ -109,8 +109,7 @@ class LoadingBar extends LitElement {
 
   
 
-  `
-     
+  ` 
      
   }
 }

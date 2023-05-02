@@ -4,19 +4,19 @@ export default async function handler(request, res) {
       "startTime":"0",
       "endTime":"15",
       "title": "Rspack",
-      "widthSize":"10",
+      "widthSize":"20",
     },
     {
         "startTime":"0",
         "endTime":"40", 
         "title": "Webpack(with SWC)",
-        "widthSize":"20",
+        "widthSize":"30",
     },
     {
         "startTime":"0",
         "endTime":"35",
         "title":"Webpack(with babel)",
-        "widthSize":"30"
+        "widthSize":"40"
     }
 
 
