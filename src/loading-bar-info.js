@@ -70,21 +70,6 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
 
 
     }
-    
-    // // render() { 
-    // //     return html` 
-    // //     ${this.elementVisible ? html`
-    // //     <div class = "infoTitle"> 
-    // //         how long to fill up  bars
-    // // </div> 
-    // // <div class = "overallBackground"> 
-    // //     ${this.loading.map(loading => html `
-    // //    <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
-    // </loading-bar> 
-    // //     `)}
-    // //     `:``}
-    // //     `
-    // // }
 
     render() { 
         return html` 
@@ -93,18 +78,21 @@ class LoadingBarInfo extends IntersectionObserverMixin(LitElement) {
             <p>All I am waiting on is for your scroll to see my animation.</p> 
     </div> 
 
-        <div class = "infoTitle"> 
-            Module Count:50000
-        </div> 
-        <div class = "overallBackground"> 
-            ${this.loading.map(loading => html `
+
+    ${this.elementVisible ? html `
+    <div class= "infoTitle"> 
+    </div> 
+    ${this.loading.map(loading => html `
             <loading-bar title= "${loading.title}" endTime= "${loading.endTime}" startTime="${loading.startTime}" widthSize="${loading.widthSize}">
             </loading-bar> 
         </div>
 
         
         `)}
-        `
+        `:`
+    
+    `}`
+    
     }
 }
 
