@@ -66,6 +66,12 @@ class LoadingBar extends LitElement {
 
     }
 
+    @media(max-width: 600px){
+      .text {
+        top: 100px; 
+      }
+    }
+
     @media (prefers-reduced-motion) 
     {
       .loading-bar-prop{
